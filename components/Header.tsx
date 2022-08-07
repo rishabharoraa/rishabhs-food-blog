@@ -1,15 +1,14 @@
-import Head from "next/head";
 import Link from "next/link";
 import React from "react";
 
 export default function Header() {
   return (
-    <header>
-      <div className="container">
-        <Link href="/">
-          <h2>Rishabh&apos;s Food Blog</h2>
-        </Link>
-      </div>
-    </header>
+    <div className="bg-amber-600 p-3">
+      <Link href="/">
+        <div className="text-white text-xl font-semibold text-center">
+          <button>Rishabh&apos;s Food Blog 🍲</button>
+        </div>
+      </Link>
+    </div>
   );
 }

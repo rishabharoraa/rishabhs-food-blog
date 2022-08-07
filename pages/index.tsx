@@ -1,5 +1,4 @@
 import Head from "next/head";
-import styles from "../styles/Home.module.css";
 import matter from "gray-matter";
 import Post from "../components/Post";
 import { readdirSync, readFileSync } from "fs";
@@ -8,9 +7,9 @@ import { sortPostByDate } from "../utils/dateUtils";
 
 export default function Home({ posts }) {
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
-        <title>Food Blog</title>
+        <title>Rishabh's food blog</title>
       </Head>
       Hello World
       {posts.map((post, index) => (

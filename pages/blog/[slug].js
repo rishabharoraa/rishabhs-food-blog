@@ -4,23 +4,31 @@ import path from "path";
 import Link from "next/link";
 import Image from "next/image";
 import matter from "gray-matter";
+import Head from "next/head";
 import { marked } from "marked";
+import sanitize from "isomorphic-dompurify";
 
 export default function postPage({
   frontMatter: { title, date, cover_image },
-  slug,
   content,
 }) {
   return (
     <>
-      <Link href="/">
-        <a>Go Back</a>
-      </Link>
-      <h1>{title}</h1>
-      <div>Posted on: {date}</div>
-      <Image src={cover_image} alt={title} width={50} height={50} />
+      <Head>
+        <title>{title}</title>
+      </Head>
       <div>
-        <div dangerouslySetInnerHTML={{ __html: marked(content) }}></div>
+        <Link href="/">
+          <a>Go Back</a>
+        </Link>
+        <div>Posted on: {date}</div>
+        <Image src={cover_image} alt={title} width={50} height={50} />
+        <div
+          className="prose"
+          dangerouslySetInnerHTML={{
+            __html: sanitize.sanitize(marked.parse(content)),
+          }}
+        />
       </div>
     </>
   );
@@ -51,7 +59,6 @@ export async function getStaticProps({ params: { slug } }) {
   return {
     props: {
       frontMatter,
-      slug,
       content,
     },
   };
