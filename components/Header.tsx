@@ -3,10 +3,10 @@ import React from "react";
 
 export default function Header() {
   return (
-    <div className="bg-amber-600 p-3">
+    <div className="py-14">
       <Link href="/">
-        <div className="text-white text-xl font-semibold text-center">
-          <button>Rishabh&apos;s Food Blog 🍲</button>
+        <div className="text-7xl font-black text-center mb-4">
+          Rishabh&apos;s Food Blog
         </div>
       </Link>
     </div>

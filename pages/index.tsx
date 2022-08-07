@@ -12,10 +12,11 @@ export default function Home({ posts }: { posts: Array<PostMetaData> }) {
       <Head>
         <title>Rishabh&apos;s food blog</title>
       </Head>
-      Hello World
-      {posts.map((post: PostMetaData, index: number) => (
-        <PostThumbnail postMetaData={post} key={index} />
-      ))}
+      <div className="w-7/12 m-auto">
+        {posts.map((post: PostMetaData, index: number) => (
+          <PostThumbnail postMetaData={post} key={index} />
+        ))}
+      </div>
     </div>
   );
 }
