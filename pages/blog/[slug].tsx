@@ -6,7 +6,7 @@ import Image from "next/image";
 import matter from "gray-matter";
 import Head from "next/head";
 import { marked } from "marked";
-import sanitize from "isomorphic-dompurify";
+import DOMPurify from "isomorphic-dompurify";
 
 export default function postPage({
   frontMatter: { title, date, cover_image },
@@ -26,7 +26,7 @@ export default function postPage({
         <div
           className="prose"
           dangerouslySetInnerHTML={{
-            __html: sanitize.sanitize(marked.parse(content)),
+            __html: DOMPurify.sanitize(marked.parse(content)),
           }}
         />
       </div>

@@ -1,6 +1,6 @@
 import Head from "next/head";
 import matter from "gray-matter";
-import Post from "../components/Post";
+import PostThumbnail from "../components/PostThumbnail";
 import { readdirSync, readFileSync } from "fs";
 import { join } from "path";
 import { sortPostByDate } from "../utils/dateUtils";
@@ -9,11 +9,11 @@ export default function Home({ posts }) {
   return (
     <div>
       <Head>
-        <title>Rishabh's food blog</title>
+        <title>Rishabh&apos;s food blog</title>
       </Head>
       Hello World
       {posts.map((post, index) => (
-        <Post post={post} key={index} />
+        <PostThumbnail post={post} key={index} />
       ))}
     </div>
   );
