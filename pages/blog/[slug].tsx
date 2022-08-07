@@ -6,11 +6,12 @@ import Image from "next/image";
 import matter from "gray-matter";
 import Head from "next/head";
 import { marked } from "marked";
+import { PostMetaDataWithContent } from "../../types";
 
 export default function postPage({
   frontMatter: { title, date, cover_image },
   content,
-}) {
+}: PostMetaDataWithContent) {
   return (
     <>
       <Head>

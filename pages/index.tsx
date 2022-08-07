@@ -4,16 +4,17 @@ import PostThumbnail from "../components/PostThumbnail";
 import { readdirSync, readFileSync } from "fs";
 import { join } from "path";
 import { sortPostByDate } from "../utils/dateUtils";
+import { PostMetaData } from "../types";
 
-export default function Home({ posts }) {
+export default function Home({ posts }: { posts: Array<PostMetaData> }) {
   return (
     <div>
       <Head>
         <title>Rishabh&apos;s food blog</title>
       </Head>
       Hello World
-      {posts.map((post, index) => (
-        <PostThumbnail post={post} key={index} />
+      {posts.map((post: PostMetaData, index: number) => (
+        <PostThumbnail postMetaData={post} key={index} />
       ))}
     </div>
   );
@@ -30,9 +31,7 @@ export async function getStaticProps() {
 
     // Get formatter
     const markdownWithMeta = readFileSync(join("posts", fileName), "utf-8");
-
     const { data: frontMatter } = matter(markdownWithMeta);
-
     return {
       slug,
       frontMatter,

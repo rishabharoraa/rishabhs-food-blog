@@ -10,4 +10,4 @@ export type FrontMatter = {
   cover_image: string; //path to cover image
 };
 
-export type PostMetaDataWithContent = PostMetaData & { context: string };
+export type PostMetaDataWithContent = PostMetaData & { content: string };
